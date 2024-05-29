@@ -66,3 +66,25 @@ aws lambda update-function-code --function-name myFastifyFunction --zip-file fil
 
 ### Note:
 - still having trouble getting dynamic apps like express and fastify working in lambda even with the adapters. gonna try to use the serverless framework (or sam) to get it up there then download the zip and recreate it to figure out what im doing wrong manually.
+- next build a layer for "@h4ad/serverless-adapter" 
+- create an app with this new layer and the code below from this site https://serverless-adapter.viniciusl.com.br/docs/main/frameworks/fastify
+
+```ts
+import { ServerlessAdapter } from '@h4ad/serverless-adapter';
+import { FastifyFramework } from '@h4ad/serverless-adapter/frameworks/fastify';
+
+const Fastify = require('fastify');
+
+const app = Fastify({ logger: true });
+export const handler = ServerlessAdapter.new(app)
+  .setFramework(new FastifyFramework())
+  // continue to set the other options here.
+  //.setHandler(new DefaultHandler())
+  //.setResolver(new PromiseResolver())
+  //.addAdapter(new AlbAdapter())
+  //.addAdapter(new SQSAdapter())
+  //.addAdapter(new SNSAdapter())
+  // after put all methods necessary, just call the build method.
+  .build();
+```
+- try it manually, with the cli, with serverless framework, with sam
