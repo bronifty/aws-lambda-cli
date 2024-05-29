@@ -62,3 +62,7 @@ zip -r fastify-app.zip app.js lambda.js
 ```sh
 aws lambda update-function-code --function-name myFastifyFunction --zip-file fileb://fastify-app.zip
 ```
+
+
+### Note:
+- still having trouble getting dynamic apps like express and fastify working in lambda even with the adapters. gonna try to use the serverless framework (or sam) to get it up there then download the zip and recreate it to figure out what im doing wrong manually.
