@@ -88,3 +88,4 @@ export const handler = ServerlessAdapter.new(app)
   .build();
 ```
 - try it manually, with the cli, with serverless framework, with sam
+- for reference here is aws-lambda-fastify https://github.com/fastify/aws-lambda-fastify
