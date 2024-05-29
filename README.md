@@ -4,10 +4,13 @@
 
 ## Layer
 
-nodejs/
+```
+zipit/
+└── nodejs/
 └── node_modules/
 ├── package1/
 └── package2/
+```
 
 ```sh
 mkdir -p layer/nodejs/node_modules
